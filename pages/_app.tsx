@@ -4,17 +4,17 @@ import { DefaultSeo } from "next-seo";
 import App from "next/app";
 import Head from "next/head";
 import { Workbox } from "workbox-window";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import type { AppProps, AppContext } from "next/app";
 
-import "./../style/index.css"
+import "./../style/index.css";
 
 import I18n from "@components/i18n";
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const router = useRouter()
-    const { locale, defaultLocale } = router
+    const router = useRouter();
+    const { locale, defaultLocale } = router;
 
     useEffect(() => {
         if (process.env.NODE_ENV !== "production") {

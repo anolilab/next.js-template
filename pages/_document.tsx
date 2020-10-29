@@ -1,6 +1,5 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { contentLanguageMap } from "@components/i18n";
 
 const generateFontLinks = (fontsFolder: string, fileName: string) => {
     return (
@@ -21,9 +20,9 @@ const generateFontLinks = (fontsFolder: string, fileName: string) => {
 
 class MyDocument extends Document<{ lang: string }> {
     static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
+        const initialProps = await Document.getInitialProps(ctx);
 
-        return { ...initialProps, lang: ctx.query.lng }
+        return { ...initialProps, lang: ctx.query.lng };
     }
 
     public render() {

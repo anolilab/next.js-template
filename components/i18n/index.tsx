@@ -1,20 +1,31 @@
 import { createContext, useState, useRef, useEffect, ReactNode } from "react";
 import rosetta from "rosetta";
-import DE from "../../locales/de";
-import EN from "../../locales/en";
+import DE from "@locales/de";
+import EN from "@locales/en";
 
 const i18n = rosetta({
     en: EN,
     de: DE,
 });
 
-export const I18nContext = createContext<{
-    activeLocale?: any;
-    t?: (...args: any[]) => string;
-    locale?: (language: string) => void;
-}>({});
+export const I18nContext = createContext<
+    | {
+          activeLocale: string;
+          t: (...args: any[]) => string;
+          locale: (language: string) => void;
+      }
+    | undefined
+>(undefined);
 
-export default function I18n({ children, locale, defaultLocale }: { children: ReactNode; locale?: string, defaultLocale: string }) {
+export default function I18n({
+    children,
+    locale,
+    defaultLocale,
+}: {
+    children: ReactNode;
+    locale?: string;
+    defaultLocale: string;
+}) {
     i18n.locale(defaultLocale);
 
     const activeLocaleRef = useRef(locale || defaultLocale);
