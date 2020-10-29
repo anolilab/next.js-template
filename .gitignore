@@ -1,0 +1,27 @@
+node_modules
+/.pnp
+.pnp.js
+
+/*.log
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+
+# testing
+/coverage
+
+public/sw.js
+public/sw.js.map
+public/worker-*.js
+public/worker-*.js.map
+
+robots.txt
+sitemap.xml
