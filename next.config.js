@@ -88,7 +88,7 @@ let webpackConfig = withPreact({
             }
         });
 
-        config.resolve.alias[""] = dev ? 'rosetta/debug' : 'rosetta';
+        config.resolve.alias["rosetta"] = dev ? 'rosetta/debug' : 'rosetta';
 
         return config;
     },
