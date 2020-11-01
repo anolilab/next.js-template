@@ -4,9 +4,9 @@ export const useEventListener = (
     eventName: string,
     handler: Function,
     options?: boolean | AddEventListenerOptions,
-    element: Document = document
+    element = global
 ) => {
-    const savedHandler = useRef();
+    const savedHandler = useRef<Function>();
 
     useEffect(() => {
         savedHandler.current = handler;
@@ -14,11 +14,12 @@ export const useEventListener = (
 
     useEffect(() => {
         const isSupported = element && element.addEventListener;
+
         if (!isSupported) {
             return;
         }
 
-        const eventListener = (event) => savedHandler.current(event);
+        const eventListener = (event: Event) => savedHandler.current(event);
 
         if (options !== undefined) {
             element.addEventListener(eventName, eventListener);

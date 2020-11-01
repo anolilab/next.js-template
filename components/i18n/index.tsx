@@ -8,20 +8,21 @@ const i18n = rosetta({
     de: DE,
 });
 
-export const I18nContext = createContext<
-    | {
-          activeLocale: string;
-          t: (...args: any[]) => string;
-          locale: (language: string) => void;
-      }
-    | undefined
->(undefined);
+export const I18nContext = createContext<{
+    activeLocale: string;
+    t: (...args: any[]) => string;
+    setLocale: (language: string) => void;
+}>({
+    activeLocale: "en",
+    t: (...args: any[]) => "",
+    setLocale: (language: string) => {}
+});
 
 export default function I18n({
-    children,
-    locale,
-    defaultLocale,
-}: {
+                                 children,
+                                 locale,
+                                 defaultLocale,
+                             }: {
     children: ReactNode;
     locale?: string;
     defaultLocale: string;
@@ -35,7 +36,7 @@ export default function I18n({
     const i18nWrapper = {
         activeLocale: activeLocaleRef.current,
         t: (...args: any[]) => i18n.t(...args),
-        locale: (language: string) => {
+        setLocale: (language: string) => {
             i18n.locale(language);
 
             activeLocaleRef.current = language;
@@ -48,13 +49,13 @@ export default function I18n({
     // for initial SSR render
     if (locale && firstRender.current === true) {
         firstRender.current = false;
-        i18nWrapper.locale(locale);
+        i18nWrapper.setLocale(locale);
     }
 
-    // when locale is updated
+    // when setLocale is updated
     useEffect(() => {
         if (locale) {
-            i18nWrapper.locale(locale);
+            i18nWrapper.setLocale(locale);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [locale]);

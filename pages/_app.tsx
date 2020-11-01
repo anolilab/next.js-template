@@ -6,16 +6,18 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
 import { Workbox } from "workbox-window";
+import Layout, { LayoutType } from "@components/core/layout";
+import DefaultLayout from "@components/core/layout/default";
+import I18n from "@components/i18n";
 
 import type { AppProps, AppContext } from "next/app";
 
-import "./../style/index.css";
+import "@assets/index.css";
 
-import I18n from "@components/i18n";
+const MyApp = ({ Component, pageProps }: { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps) => {
+    const { locale, defaultLocale, route } = useRouter();
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-    const router = useRouter();
-    const { locale, defaultLocale } = router;
+    const ComponentLayout = Component.Layout || DefaultLayout;
 
     useEffect(() => {
         if (process.env.NODE_ENV !== "production") {
@@ -53,7 +55,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                         cardType: "summary_large_image",
                     }}
                 />
-                <Component {...pageProps} />
+                <Layout route={route}>
+                    <ComponentLayout route={route}>
+                        <Component {...pageProps} key={route} />
+                    </ComponentLayout>
+                </Layout>
             </ThemeProvider>
         </I18n>
     );
