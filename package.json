@@ -4,14 +4,15 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "preinstall": "node verify-node-version.js",
     "analyz:build": "cross-env ANALYZE=true next build",
-    "build": "next build",
-    "dev": "next dev",
+    "build": "node verify-node-version.js && next build",
+    "dev": "node verify-node-version.js && next dev",
     "export": "yarn build && next export",
     "lint": "eslint -c ./.eslintrc.js --print-config ./.eslintrc.js | eslint-config-prettier-check && eslint -c ./.eslintrc.js '**/*.{ts,tsx}'",
     "lint:fix": "yarn run lint -- --fix && yarn rustywind --write .",
-    "start": "next start",
-    "test": "jest ./tests"
+    "start": "node verify-node-version.js && next start",
+    "test": "node verify-node-version.js && jest ./tests"
   },
   "husky": {
     "hooks": {
