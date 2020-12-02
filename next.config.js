@@ -51,7 +51,7 @@ let webpackConfig = {
     },
 
     webpack(config, options) {
-        const { dev } = options;
+        const { dev, isServer } = options;
 
         const typingLoader = {
             loader: "@teamsupercell/typings-for-css-modules-loader",
@@ -85,6 +85,17 @@ let webpackConfig = {
 
         const aliases = config.resolve.alias || (config.resolve.alias = {});
         aliases["rosetta"] = dev ? 'rosetta/debug' : 'rosetta';
+
+        if (process.env.ANALYZE_BUILD) {
+            const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+            config.plugins.push(
+                new BundleAnalyzerPlugin({
+                    analyzerMode: 'server',
+                    analyzerPort: isServer ? 8888 : 8889,
+                    openAnalyzer: true
+                })
+            );
+        }
 
         return config;
     },
