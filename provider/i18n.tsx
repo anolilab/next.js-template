@@ -33,17 +33,17 @@ export interface RosettaExtended<T> extends Omit<RosettaBase<T>, "t"> {
 
 export const I18nContext = createContext<RosettaExtended<any> | null>(null);
 
-export type I18nProps<T = any> = {
+export type I18nProps<T = {}> = {
     table: T;
+};
+
+export type I18nProviderProps<T = {}> = I18nProps<T> & {
+    children?: any;
     defaultLocale: string;
     locale?: string;
 };
 
-export type I18nProviderProps<T = any> = I18nProps<T> & {
-    children?: any;
-};
-
-export function I18nProvider<T = any>({ table, defaultLocale, locale, ...props }: I18nProviderProps<T>) {
+export function I18nProvider<T = {}>({ table, defaultLocale, locale, ...props }: I18nProviderProps<T>) {
     locale = locale || defaultLocale;
 
     const [i18n, setI18n] = useState<RosettaExtended<T>>(() => {
