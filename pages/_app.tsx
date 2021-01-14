@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { DefaultSeo } from "next-seo";
 import App from "next/app";
@@ -8,13 +8,16 @@ import { ThemeProvider } from "next-themes";
 import { Workbox } from "workbox-window";
 import Layout, { LayoutType } from "@components/core/layout";
 import DefaultLayout from "@components/core/layout/default";
-import I18n from "@components/i18n";
+import { I18nProvider } from "@provider/i18n";
 
 import type { AppProps, AppContext } from "next/app";
 
 import "@assets/index.css";
 
-const MyApp = ({ Component, pageProps }: { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps) => {
+const MyApp = ({
+    Component,
+    pageProps,
+}: { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps): ReactElement => {
     const { locale, defaultLocale, route } = useRouter();
 
     const ComponentLayout = Component.Layout || DefaultLayout;
@@ -37,7 +40,7 @@ const MyApp = ({ Component, pageProps }: { Component: AppProps["Component"] & { 
     }, []);
 
     return (
-        <I18n locale={locale} defaultLocale={defaultLocale}>
+        <I18nProvider table={pageProps.table} locale={locale} defaultLocale={defaultLocale as string}>
             <ThemeProvider>
                 <Head>
                     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -61,7 +64,7 @@ const MyApp = ({ Component, pageProps }: { Component: AppProps["Component"] & { 
                     </ComponentLayout>
                 </Layout>
             </ThemeProvider>
-        </I18n>
+        </I18nProvider>
     );
 };
 
