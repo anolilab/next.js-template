@@ -19,6 +19,7 @@
             "labels": ["dependency", "Changed"],
             "semanticCommitType": "chore",
             "semanticCommitScope": "deps",
+            "rangeStrategy": "replace",
             "vulnerabilityAlerts": {
                 "labels": ["Security"],
                 "assignees": ["@prisis"]
@@ -32,6 +33,7 @@
             "labels": ["type/deps"],
             "semanticCommitType": "chore",
             "semanticCommitScope": "deps",
+            "rangeStrategy": "replace",
             "vulnerabilityAlerts": {
                 "labels": ["Security"],
                 "assignees": ["@prisis"]
@@ -45,6 +47,7 @@
             "labels": ["dependency", "Changed"],
             "semanticCommitType": "chore",
             "semanticCommitScope": "deps",
+            "rangeStrategy": "replace",
             "vulnerabilityAlerts": {
                 "labels": ["Security"],
                 "assignees": ["@prisis"]
@@ -58,6 +61,7 @@
             "labels": ["dependency", "Changed"],
             "semanticCommitType": "chore",
             "semanticCommitScope": "deps",
+            "rangeStrategy": "replace",
             "vulnerabilityAlerts": {
                 "labels": ["Security"],
                 "assignees": ["@prisis"]
