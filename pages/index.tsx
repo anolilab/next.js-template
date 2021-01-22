@@ -13,8 +13,8 @@ export const getStaticProps: GetStaticProps<
         /* types */
     }>
 > = async (context) => {
-    const locale = context.locale || context.defaultLocale;
-    const { table = {} } = await import(`../locales/${locale}`);
+    // Add new locals based on context local
+    // const locale = context.locale || context.defaultLocale;
 
-    return { props: { table } }; // Passed to `/pages/_app.tsx`
+    return { props: { table: {} } }; // Passed to `/pages/_app.tsx`
 };
