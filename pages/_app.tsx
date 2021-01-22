@@ -15,6 +15,7 @@ import "@assets/index.css";
 const MyApp = ({
     Component,
     pageProps,
+    table,
 }: { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps): ReactElement => {
     const { locale, defaultLocale, route } = useRouter();
 
@@ -38,7 +39,7 @@ const MyApp = ({
     }, []);
 
     return (
-        <I18nProvider table={pageProps.table} locale={locale} defaultLocale={defaultLocale as string}>
+        <I18nProvider table={{ ...table, ...pageProps.table }} locale={locale} defaultLocale={defaultLocale as string}>
             <ThemeProvider>
                 <Head>
                     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -69,10 +70,11 @@ const MyApp = ({
 MyApp.getInitialProps = async (appContext: AppContext) => {
     const appProps = await App.getInitialProps(appContext);
 
-    const locale = appContext.locale || appContext.defaultLocale;
-    const { table = {} } = await import(`../i18n/${locale}`); // Import locale
+    const locale = appContext.router.locale || appContext.router.defaultLocale;
 
-    return { ...appProps };
+    const { default: table = {} } = await import(`./../locales/${locale}/index`);
+
+    return { ...appProps, table: table || {} };
 };
 
 export default MyApp;

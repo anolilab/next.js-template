@@ -25,6 +25,9 @@ git clone https://github.com/anolilab/next.js-template.git
 # Move into the new directory
 cd next.js-template/
 
+# Use nvm (https://github.com/nvm-sh/nvm)
+nvm use (if you missing the node version use "nvm install")
+
 # Install npm packages
 yarn
 
