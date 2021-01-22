@@ -5,7 +5,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const withWorkbox = require("next-with-workbox");
 const withSitemap = require("next-with-sitemap");
 
-const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
+// const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
 
 const path = require('path');
 const nextConfig = require("./anolilab.config")
@@ -137,11 +137,11 @@ let webpackConfig = {
             );
         }
 
-        config.plugins.push(
-            new FaviconsManifestWebpackPlugin({
-                logo: path.resolve(__dirname, 'public', 'favicon.svg')
-            })
-        );
+        // config.plugins.push(
+        //     new FaviconsManifestWebpackPlugin({
+        //         logo: path.resolve(__dirname, 'public', 'favicon.svg')
+        //     })
+        // );
 
         return config;
     },
