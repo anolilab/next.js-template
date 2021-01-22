@@ -12,6 +12,7 @@ import DefaultLayout from "@components/layout/default";
 import { I18nProps, I18nProvider } from "@provider/i18n";
 
 import "@assets/index.css";
+import nextConfig from '../anolilab.config';
 
 const MyApp: FunctionalComponent<
     { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &
@@ -44,6 +45,7 @@ const MyApp: FunctionalComponent<
         <I18nProvider table={{ ...table, ...pageProps.table }} locale={locale} defaultLocale={defaultLocale as string}>
             <ThemeProvider>
                 <Head>
+                    <title>{nextConfig.title}</title>
                     <meta name="viewport" content="width=device-width,initial-scale=1" />
                 </Head>
                 <DefaultSeo

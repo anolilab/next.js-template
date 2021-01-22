@@ -1,4 +1,6 @@
 module.exports = {
+    // The default page title
+    title: "",
     domain: "http://example.com",
     i18n: {
         // These are all the locales you want to support in
