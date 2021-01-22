@@ -1,4 +1,5 @@
-import React, { ReactElement, useEffect } from "react";
+import { FunctionalComponent, h } from "preact";
+import { useEffect } from "preact/hooks";
 import ReactDOM from "react-dom";
 import { DefaultSeo } from "next-seo";
 import App, { AppProps, AppContext } from "next/app";
@@ -8,15 +9,16 @@ import { ThemeProvider } from "next-themes";
 import { Workbox } from "workbox-window";
 import Layout, { LayoutType } from "@components/layout";
 import DefaultLayout from "@components/layout/default";
-import { I18nProvider } from "@provider/i18n";
+import { I18nProps, I18nProvider } from "@provider/i18n";
 
 import "@assets/index.css";
 
-const MyApp = ({
-    Component,
-    pageProps,
-    table,
-}: { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps): ReactElement => {
+const MyApp: FunctionalComponent<
+    { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &
+        I18nProps<{
+            /* types */
+        }>
+> = ({ Component, pageProps, table }) => {
     const { locale, defaultLocale, route } = useRouter();
 
     const ComponentLayout = Component.Layout || DefaultLayout;
@@ -25,7 +27,7 @@ const MyApp = ({
         if (process.env.NODE_ENV !== "production") {
             const axe = require("@axe-core/react");
 
-            axe(React, ReactDOM, 1000, { runOnly: false });
+            axe(h, ReactDOM, 1000, { runOnly: false });
         }
 
         if (!("serviceWorker" in navigator) || process.env.NODE_ENV !== "production") {
