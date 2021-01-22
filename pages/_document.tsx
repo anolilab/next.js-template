@@ -1,5 +1,6 @@
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
+
+import nextConfig from '../anolilab.config';
 
 const generateFontLinks = (fontsFolder: string, fileName: string) => {
     return (
@@ -19,7 +20,7 @@ const generateFontLinks = (fontsFolder: string, fileName: string) => {
 };
 
 class MyDocument extends Document<{ lang: string }> {
-    static async getInitialProps(ctx) {
+    static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx);
 
         return { ...initialProps, lang: ctx.query.lng };
@@ -38,83 +39,33 @@ class MyDocument extends Document<{ lang: string }> {
                     <meta name="robots" content="index,follow" />
                     <meta name="googlebot" content="index,follow" />
 
-                    <meta name="google-site-verification" content="verification_token" />
-                    <meta name="yandex-verification" content="verification_token" />
-                    <meta name="msvalidate.01" content="verification_token" />
-                    <meta name="alexaVerifyID" content="verification_token" />
-                    <meta name="p:domain_verify" content="code_from_pinterest" />
+                    {nextConfig.openGraph.verification.map(v => <meta name={v.name} content={v.token} />)}
 
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:site" content="@anolilab" />
-                    <meta name="twitter:creator" content="@_prisis_" />
-                    <meta name="twitter:image" content="https://example.com/image.jpg" />
+                    {nextConfig.openGraph.twitter && nextConfig.openGraph.twitter.site && (<>
+                        <meta name="twitter:card" content="summary_large_image" />
+                        <meta name="twitter:site" content={nextConfig.openGraph.twitter.site} />
+                        <meta name="twitter:creator" content={nextConfig.openGraph.twitter.creator} />
+                        <meta name="twitter:image" content={nextConfig.openGraph.twitter.image} />
+                    </>)}
 
-                    <meta property="og:site_name" content="anolilab" />
-                    <meta property="og:image" content="https://example.com/image.jpg" />
-                    <meta property="og:type" content="website" />
+                    {nextConfig.openGraph.og && nextConfig.openGraph.og.site && (<>
+                    <meta property="og:site_name" content={nextConfig.openGraph.og.site} />
+                    <meta property="og:image" content={nextConfig.openGraph.og.image} />
+                    <meta property="og:type" content={nextConfig.openGraph.og.type} />
+                    </>)}
 
-                    <meta property="article:author" content="Daniel Bannert" />
+
+                    {nextConfig.openGraph.author && (<meta property="article:author" content={nextConfig.openGraph.author} />)}
 
                     <link rel="manifest" href="static/manifest.json" />
-                    <link rel="icon" href="static/img/favicon.ico" />
 
-                    <link rel="alternate" hrefLang="en" href="https://anolilab.com" />
-                    <link rel="alternate" hrefLang="de" href="https://anolilab.de" />
+                    {(nextConfig.i18n || {})?.domains?.map((domain) => <link rel="alternate" hrefLang={domain.defaultLocale} href={domain.domain} />)}
 
-                    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
-                    <link rel="icon" href="" sizes="16x16" type="image/png" />
-                    <link rel="icon" href="" sizes="32x32" type="image/png" />
-                    <link rel="icon" href="" sizes="48x48" type="image/png" />
-                    <link rel="icon" href="" sizes="62x62" type="image/png" />
-                    <link rel="icon" href="" sizes="192x192" type="image/png" />
-
-                    {([
-                        "montserrat-v14-latin-100",
-                        "montserrat-v14-latin-100italic",
-                        "montserrat-v14-latin-200",
-                        "montserrat-v14-latin-200italic",
-                        "montserrat-v14-latin-300",
-                        "montserrat-v14-latin-300italic",
-                        "montserrat-v14-latin-regular",
-                        "montserrat-v14-latin-italic",
-                        "montserrat-v14-latin-500",
-                        "montserrat-v14-latin-500italic",
-                        "montserrat-v14-latin-600",
-                        "montserrat-v14-latin-600italic",
-                        "montserrat-v14-latin-700",
-                        "montserrat-v14-latin-700italic",
-                        "montserrat-v14-latin-800",
-                        "montserrat-v14-latin-800italic",
-                        "montserrat-v14-latin-900",
-                        "montserrat-v14-latin-900italic",
-                    ] as string[]).map((font: string) => generateFontLinks("montserrat-v14-latin", font))}
-
-                    {([
-                        "raleway-v17-latin-100",
-                        "raleway-v17-latin-100italic",
-                        "raleway-v17-latin-200",
-                        "raleway-v17-latin-200italic",
-                        "raleway-v17-latin-300",
-                        "raleway-v17-latin-300italic",
-                        "raleway-v17-latin-regular",
-                        "raleway-v17-latin-italic",
-                        "raleway-v17-latin-500",
-                        "raleway-v17-latin-500italic",
-                        "raleway-v17-latin-600",
-                        "raleway-v17-latin-600italic",
-                        "raleway-v17-latin-700",
-                        "raleway-v17-latin-700italic",
-                        "raleway-v17-latin-800",
-                        "raleway-v17-latin-800italic",
-                        "raleway-v17-latin-900",
-                        "raleway-v17-latin-900italic",
-                    ] as string[]).map((font: string) => generateFontLinks("raleway-v17-latin", font))}
+                    {/* @todo add favicons from https://github.com/anolilab/next-favicons */}
                 </Head>
                 <body>
                     <Main />
                     <NextScript />
-
-                    <script src="https://f.convertkit.com/ckjs/ck.5.js" />
                 </body>
             </Html>
         );

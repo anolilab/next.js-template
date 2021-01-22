@@ -4,16 +4,58 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 const withWorkbox = require("next-with-workbox");
 const withSitemap = require("next-with-sitemap");
-const path = require('path');
 
-const CSS_PATTERN = /\.css$/;
-const MODULE_CSS_PATTERN = /\.module\.css$/;
+const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
+
+const path = require('path');
+const nextConfig = require("./anolilab.config")
+
+const traverse = (rules) => {
+    for (let rule of rules) {
+        if (typeof rule.loader === 'string' && rule.loader.includes('css-loader')) {
+            if (
+                rule.options &&
+                rule.options.modules &&
+                typeof rule.options.modules.getLocalIdent === 'function'
+            ) {
+                let nextGetLocalIdent = rule.options.modules.getLocalIdent;
+
+                rule.options.modules.getLocalIdent = (context, _, exportName, options) => {
+                    if (context.resourcePath.includes(nextConfig.linaria.extension)) {
+                        return exportName;
+                    }
+
+                    return nextGetLocalIdent(context, _, exportName, options);
+                };
+            }
+        }
+
+        if (typeof rule.use === 'object') {
+            traverse(Array.isArray(rule.use) ? rule.use : [rule.use]);
+        }
+
+        if (Array.isArray(rule.oneOf)) {
+            traverse(rule.oneOf);
+        }
+    }
+}
 
 const isCssRules = (rule) => {
-    return (
-        rule.test &&
-        (rule.test.toString() === CSS_PATTERN.toString() || rule.test.toString() === MODULE_CSS_PATTERN.toString())
-    );
+    if (!rule.test) {
+        return false
+    }
+
+    if (Array.isArray(rule.test)) {
+        let has = false
+
+        rule.test.forEach((r) => {
+            nextConfig.css.extensions.includes(r.toString())
+        })
+
+        return has
+    }
+
+    return nextConfig.css.extensions.includes(rule.test);
 };
 
 let webpackConfig = {
@@ -27,28 +69,9 @@ let webpackConfig = {
         productionBrowserSourceMaps: true
     },
 
-    pageExtensions: ["ts", "tsx"],
+    pageExtensions: nextConfig.pageExtensions,
 
-    i18n: {
-        // These are all the locales you want to support in
-        // your application
-        locales: ["en", "de"],
-        // This is the default locale you want to be used when visiting
-        // a non-locale prefixed path e.g. `/hello`
-        defaultLocale: "en",
-        // This is a list of locale domains and the default locale they
-        // should handle (these are only required when setting up domain routing)
-        domains: [
-            {
-                domain: "example.com",
-                defaultLocale: "en",
-            },
-            {
-                domain: "example.de",
-                defaultLocale: "de",
-            },
-        ],
-    },
+    i18n: nextConfig.i18n,
 
     webpack(config, options) {
         const { dev, isServer } = options;
@@ -84,10 +107,27 @@ let webpackConfig = {
         });
 
         const aliases = config.resolve.alias || (config.resolve.alias = {});
+
         aliases["rosetta"] = dev ? 'rosetta/debug' : 'rosetta';
 
+        traverse(config.module.rules);
+
+        config.module.rules.push({
+            test: /\.(tsx|ts|js|mjs|jsx)$/,
+            exclude: /node_modules/,
+            use: [
+                {
+                    loader: require.resolve('@linaria/webpack-loader'),
+                    options: {
+                        sourceMap: process.env.NODE_ENV !== 'production',
+                        ...nextConfig.linaria,
+                    },
+                },
+            ],
+        });
+
         if (process.env.ANALYZE_BUILD) {
-            const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+            const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
             config.plugins.push(
                 new BundleAnalyzerPlugin({
                     analyzerMode: 'server',
@@ -96,6 +136,12 @@ let webpackConfig = {
                 })
             );
         }
+
+        config.plugins.push(
+            new FaviconsManifestWebpackPlugin({
+                logo: path.resolve(__dirname, 'public', 'favicon.svg')
+            })
+        );
 
         return config;
     },
@@ -106,36 +152,14 @@ webpackConfig = withBundleAnalyzer(webpackConfig);
 webpackConfig = withWorkbox({ workbox: {}, ...webpackConfig });
 webpackConfig = withSitemap({
     sitemap: {
-        baseUrl: "https://example.com",
-        alternateBaseUrls: [
-            {
-                lang: "de",
-                url: "https://example.de",
-            },
-            {
-                lang: "en",
-                url: "https://example.com",
-            },
-        ],
+        baseUrl: nextConfig.domain,
+        alternateBaseUrls: nextConfig.i18n.domains.map((domain) => ({
+            lang: domain.defaultLocale,
+            url: domain.domain,
+        })),
         dest: "public",
-        // excludedPaths: ["/login", "/signup"],
-        // extraPaths: ["/extra/path"],
         pages: "pages",
-        pageTags: [
-            {
-                path: "/",
-                priority: 1.0,
-            },
-            {
-                path: "/extra/path",
-                changefreq: "monthly",
-            },
-            {
-                path: "/about",
-                changefreq: "weekly",
-                priority: 0.5,
-            },
-        ],
+        pageTags: nextConfig.sitemap.pageTags,
         robots: true,
         sitemap: true,
     },

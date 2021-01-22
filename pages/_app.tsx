@@ -1,16 +1,14 @@
 import React, { ReactElement, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { DefaultSeo } from "next-seo";
-import App from "next/app";
+import App, { AppProps, AppContext } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
 import { Workbox } from "workbox-window";
-import Layout, { LayoutType } from "@components/core/layout";
-import DefaultLayout from "@components/core/layout/default";
+import Layout, { LayoutType } from "@components/layout";
+import DefaultLayout from "@components/layout/default";
 import { I18nProvider } from "@provider/i18n";
-
-import type { AppProps, AppContext } from "next/app";
 
 import "@assets/index.css";
 
@@ -26,7 +24,7 @@ const MyApp = ({
         if (process.env.NODE_ENV !== "production") {
             const axe = require("@axe-core/react");
 
-            axe(React, ReactDOM, 1000);
+            axe(React, ReactDOM, 1000, { runOnly: false });
         }
 
         if (!("serviceWorker" in navigator) || process.env.NODE_ENV !== "production") {
@@ -70,6 +68,9 @@ const MyApp = ({
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
     const appProps = await App.getInitialProps(appContext);
+
+    const locale = appContext.locale || appContext.defaultLocale;
+    const { table = {} } = await import(`../i18n/${locale}`); // Import locale
 
     return { ...appProps };
 };
