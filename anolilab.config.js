@@ -22,6 +22,9 @@ module.exports = {
             },
         ],
     },
+    // images: {
+    //
+    // },
     pageExtensions: ["ts", "tsx"],
     css: {
         extensions: [/\.css$/, /\.module\.css$/, /\.linaria\.module\.css$/],

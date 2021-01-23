@@ -147,6 +147,10 @@ let webpackConfig = {
     },
 };
 
+if (nextConfig.images) {
+    webpackConfig.images = nextConfig.images
+}
+
 webpackConfig = withPreact(webpackConfig);
 webpackConfig = withBundleAnalyzer(webpackConfig);
 webpackConfig = withWorkbox({ workbox: {}, ...webpackConfig });

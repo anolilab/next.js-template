@@ -11,7 +11,7 @@
   <a href="https://github.com/anolilab/favicons-manifest" title="PWA assets generator">PWA assets generator</a> (soon)
 </p>
 
-## Getting Started
+## 🏁 Getting Started
 
 To get started, simply use this repository as github template, click the `Use this template` button or clone the repository and run `yarn`
 
@@ -35,6 +35,61 @@ yarn
 yarn run dev
 ```
 
+## ✨ Features
+
+<details>
+<summary>Images with Next/Images 🚀</summary>
+<br />
+<ul>
+  <li>Feature and inline images</li>
+  <li>Auto-optimized images</li>
+  <li>No content shifts due to consistent placeholders</li>
+</ul>
+</details>
+<details>
+<summary>Advanced Routing</summary>
+<br />
+<ul>
+  <li>Auto-detects custom paths</li>
+  <li>Configurable collections</li>
+</ul>
+</details>
+<details>
+<summary>Developer friendly</summary>
+<br />
+<ul>
+  <li>MIT licenced</li>
+  <li>Truly open-source</li>
+  <li>Easy to contribute</li>
+  <li>Made typesafe with TypeScript</li>
+</ul>
+</details>
+<details>
+<summary>NextJS Features</summary>
+<br />
+<ul>
+  <li>Incremental Regeneration</li>
+  <li>Support for Preview</li>
+</ul>
+</details>
+
+## 🌀 NextJS image optimizations
+
+You must add all domains that you use for in-sourcing images in the `anolilab.config.js` file, for example:
+
+```javascript
+module.exports = {
+    // ...
+    images: {
+        domains: ['images.unsplash.com', 'static.gotsby.org'],
+    },
+    // ...
+}
+```
+
+Note that image optimization does not work with Netlify. Therefore, image optimization is automatically turned off when deploying to Netlify.
+
+
 ## CLI Commands
 *   `yarn`: Installs dependencies
 *   `yarn run dev`: Run a development, HMR server
@@ -44,3 +99,20 @@ yarn run dev
 *   `yarn run test`: Run Jest and Enzyme with
     [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
     your tests
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## 🧐 Disclaimer
+
+This project is not affiliated with [NextJS](https://nextjs.org/).
+
+# Copyright & License
+
+Copyright (c) 2020 - 2021 anolilab - Released under the [MIT license](LICENSE).
