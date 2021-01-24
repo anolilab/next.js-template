@@ -151,23 +151,30 @@ if (nextConfig.images) {
     webpackConfig.images = nextConfig.images
 }
 
+if (nextConfig.env) {
+    webpackConfig.env = nextConfig.env
+}
+
 webpackConfig = withPreact(webpackConfig);
 webpackConfig = withBundleAnalyzer(webpackConfig);
 webpackConfig = withWorkbox({ workbox: {}, ...webpackConfig });
-webpackConfig = withSitemap({
-    sitemap: {
-        baseUrl: nextConfig.domain,
-        alternateBaseUrls: nextConfig.i18n.domains.map((domain) => ({
-            lang: domain.defaultLocale,
-            url: domain.domain,
-        })),
-        dest: "public",
-        pages: "pages",
-        pageTags: nextConfig.sitemap.pageTags,
-        robots: true,
-        sitemap: true,
-    },
-    ...webpackConfig
-});
+
+if (nextConfig.sitemap.active) {
+    webpackConfig = withSitemap({
+        sitemap: {
+            baseUrl: nextConfig.domain,
+            alternateBaseUrls: nextConfig.i18n.domains.map((domain) => ({
+                lang: domain.defaultLocale,
+                url: domain.domain,
+            })),
+            dest: nextConfig.sitemap.dest,
+            pages: nextConfig.sitemap.pages,
+            pageTags: nextConfig.sitemap.pageTags,
+            robots: nextConfig.sitemap.robots,
+            sitemap: true,
+        },
+        ...webpackConfig
+    });
+}
 
 module.exports = webpackConfig;

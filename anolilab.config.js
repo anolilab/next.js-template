@@ -22,7 +22,11 @@ module.exports = {
             },
         ],
     },
+    // @see https://nextjs.org/docs/basic-features/image-optimization for more information
     // images: {
+    //
+    // },
+    // env: {
     //
     // },
     pageExtensions: ["ts", "tsx"],
@@ -73,6 +77,11 @@ module.exports = {
         }
     },
     sitemap: {
+        // Change false to true, to active the sitemap generation.
+        active: false,
+        robots: true,
+        dest: "public",
+        pages: "pages",
         pageTags: [
             {
                 path: "/",
