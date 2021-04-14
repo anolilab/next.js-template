@@ -66,15 +66,15 @@ module.exports = {
         twitter: {
             site: "@anolilab",
             creator: "@_prisis_",
-            image: ""
+            image: "",
         },
         og: {
             site: "anolilab",
             // Recommended Image size: min 1200 x 630 px
             // Min Image size: 600 x 315 px, dont use a image below this size
             image: "",
-            type: "site"
-        }
+            type: "site",
+        },
     },
     sitemap: {
         // Change false to true, to active the sitemap generation.
@@ -109,12 +109,19 @@ module.exports = {
             android: true,
             apple: true,
             appleStartup: true,
-            appleBackground: true,        // Background color for iOS icons.
-            appleOffset: 0,               // Offset size in percents for iOS icons.
+            appleBackground: true, // Background color for iOS icons.
+            appleOffset: 0, // Offset size in percents for iOS icons.
             appleStartupBackground: true, // Background color for iOS startup screens.
-            appleStartupOffset: 0,        // Offset size in percents for iOS startup screens.
-            androidBackground: true,      // Background color for Android icons.
-            androidOffset: 0,             // Offset size in percents for Android icons.
-        }
+            appleStartupOffset: 0, // Offset size in percents for iOS startup screens.
+            androidBackground: true, // Background color for Android icons.
+            androidOffset: 0, // Offset size in percents for Android icons.
+        },
+    },
+    // @see https://webpack.js.org/plugins/provide-plugin
+    provide: {
+        React: "react",
+        h: ['preact', 'h'],
+        Fragment: ['preact', 'Fragment'],
+        '{h, Fragment}': 'preact'
     }
 };

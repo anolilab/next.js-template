@@ -1,10 +1,10 @@
-import { NetworkFirst } from 'workbox-strategies';
-import { cacheNames } from 'workbox-core';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { registerRoute, setCatchHandler } from 'workbox-routing';
-import { precacheAndRoute, getCacheKeyForURL } from 'workbox-precaching';
+import { NetworkFirst } from "workbox-strategies";
+import { cacheNames } from "workbox-core";
+import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { registerRoute, setCatchHandler } from "workbox-routing";
+import { precacheAndRoute, getCacheKeyForURL } from "workbox-precaching";
 
-const isNav = event => event.request.mode === 'navigate';
+const isNav = (event) => event.request.mode === "navigate";
 
 const NETWORK_HANDLER = new NetworkFirst({
     // this cache is plunged with every new service worker deploy so we dont need to care about purging the cache.
@@ -25,7 +25,7 @@ registerRoute(({ event }) => isNav(event), NETWORK_HANDLER);
 
 setCatchHandler(({ event }) => {
     if (isNav(event)) {
-        return caches.match(getCacheKeyForURL('/index.html'));
+        return caches.match(getCacheKeyForURL("/index.html"));
     }
     return Response.error();
 });

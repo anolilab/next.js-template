@@ -12,7 +12,7 @@ import DefaultLayout from "@components/layout/default";
 import { I18nProps, I18nProvider } from "@provider/i18n";
 
 import "@assets/index.css";
-import nextConfig from '../anolilab.config';
+import nextConfig from "../anolilab.config";
 
 const MyApp: FunctionalComponent<
     { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &

@@ -8,8 +8,8 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 
-[{package.json, tsconfig.*}]
-indent_size = 2
-
 [*.yml]
+indent_size = 4
+
+[package.json]
 indent_size = 2

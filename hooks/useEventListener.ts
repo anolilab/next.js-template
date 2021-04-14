@@ -4,7 +4,7 @@ export const useEventListener = (
     eventName: string,
     handler: Function,
     options?: boolean | AddEventListenerOptions,
-    element = global
+    element = global,
 ) => {
     const savedHandler = useRef<Function>();
 

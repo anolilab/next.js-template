@@ -1,11 +1,12 @@
-import React, { useContext, createContext, useState, useEffect } from "react";
+import { createContext, h } from "preact";
 import rosetta, { Rosetta as RosettaBase } from "rosetta";
+import { useEffect, useState, useContext } from "preact/hooks";
 
 /**
  * @see https://github.com/microsoft/TypeScript/pull/40336
  */
 type PropType<T, Path extends string> = string extends Path
-    ? unknown
+    ? string
     : Path extends keyof T
     ? T[Path]
     : Path extends `${infer K}.${infer R}`

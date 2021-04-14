@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 const map = require("lodash.map");
 
 module.exports = {
+    mode: "jit",
     theme: {
         extend: {
             colors: {

@@ -1,41 +1,31 @@
 module.exports = {
-    env: {
-        browser: true
-    },
-    plugins: ["@typescript-eslint"],
-    extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:prettier/recommended",
-        "prettier/@typescript-eslint",
-        "prettier/react"
-    ],
-    parser: "@typescript-eslint/parser",
+    root: true,
+    extends: ["@anolilab/eslint-config"],
     parserOptions: {
-        ecmaFeatures: {
-            jsx: true
-        },
         project: "./tsconfig.eslint.json",
     },
+    env: {
+        // Your environments (which contains several predefined global variables)
+        browser: true,
+        // node: true,
+        // mocha: true,
+        // jest: true,
+        // jquery: true
+    },
+    globals: {
+        // Your global variables (setting to false means it's not allowed to be reassigned)
+        //
+        // myGlobal: false
+    },
     rules: {
-        "react/no-unknown-property": ["error", { ignore: ["class"] }],
+        // Customize your rules
     },
     settings: {
         react: {
-            // pragma: "h",
-            version: "17.0.0"
+            createClass: "Component",
+            "pragma": "h",
+            "fragment": "Fragment",
+            version: "17.0"
         },
     },
-    overrides: [
-        {
-            files: ["*.js"],
-            rules: {
-                "@typescript-eslint/explicit-function-return-type": "off",
-            }
-        }
-    ]
 };
