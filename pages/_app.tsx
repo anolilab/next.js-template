@@ -5,17 +5,17 @@ import { DefaultSeo } from "next-seo";
 import App, { AppProps, AppContext } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import ErrorComponent from "next/error"
+import ErrorComponent from "next/error";
 import { ThemeProvider } from "next-themes";
 import { Workbox } from "workbox-window";
 import { ErrorBoundary } from "react-error-boundary";
 import Layout, { LayoutType } from "@components/layout";
 import DefaultLayout from "@components/layout/default";
 import { I18nProps, I18nProvider } from "@provider/i18n";
+import { ErrorFallbackProps } from "../@types/core";
 
 import "@assets/index.css";
 import nextConfig from "../anolilab.config";
-import {ErrorFallbackProps} from '../@types/core';
 
 const MyApp: FunctionalComponent<
     { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &
@@ -45,10 +45,7 @@ const MyApp: FunctionalComponent<
     }, []);
 
     return (
-        <ErrorBoundary
-            FallbackComponent={RootErrorFallback}
-            resetKeys={[asPath]}
-        >
+        <ErrorBoundary FallbackComponent={RootErrorFallback} resetKeys={[asPath]}>
             <I18nProvider
                 table={{ ...table, ...pageProps.table }}
                 locale={locale}
@@ -84,11 +81,10 @@ const MyApp: FunctionalComponent<
 };
 
 function RootErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
-    return (
-        <ErrorComponent statusCode={error.statusCode || 400} title={error.message || error.name} />
-    )
+    return <ErrorComponent statusCode={error.statusCode || 400} title={error.message || error.name} />;
 }
 
+// @ts-ignore
 MyApp.getInitialProps = async (appContext: AppContext) => {
     const appProps = await App.getInitialProps(appContext);
 
