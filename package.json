@@ -112,7 +112,7 @@
     "rustywind": "^0.8.1",
     "stylelint": "^13.12.0",
     "ts-jest": "^26.5.4",
-    "ts-loader": "^8.1.0",
+    "ts-loader": "^9.0.0",
     "typescript": "^4.2.4",
     "webpack-bundle-analyzer": "^4.4.1",
     "workbox-precaching": "^6.1.5",
