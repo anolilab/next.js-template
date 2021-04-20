@@ -15,7 +15,7 @@ import { I18nProps, I18nProvider } from "@provider/i18n";
 import { ErrorFallbackProps } from "../@types/core";
 
 import "@assets/index.css";
-import nextConfig from "../anolilab.config";
+import nextConfig from "../anolilab.config.cjs";
 
 const MyApp: FunctionalComponent<
     { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &
@@ -39,7 +39,7 @@ const MyApp: FunctionalComponent<
             return;
         }
 
-        const wb = new Workbox("worker.js", { scope: "/" });
+        const wb = new Workbox("worker.cjs", { scope: "/" });
 
         wb.register();
     }, []);

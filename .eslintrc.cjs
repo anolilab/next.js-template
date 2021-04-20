@@ -1,15 +1,13 @@
 module.exports = {
     root: true,
     extends: ["@anolilab/eslint-config"],
-    parserOptions: {
-        project: "./tsconfig.eslint.json",
-    },
     env: {
         // Your environments (which contains several predefined global variables)
+        //
         browser: true,
         // node: true,
         // mocha: true,
-        // jest: true,
+        jest: true,
         // jquery: true
     },
     globals: {
@@ -19,13 +17,5 @@ module.exports = {
     },
     rules: {
         // Customize your rules
-    },
-    settings: {
-        react: {
-            createClass: "Component",
-            "pragma": "h",
-            "fragment": "Fragment",
-            version: "17.0"
-        },
-    },
+    }
 };

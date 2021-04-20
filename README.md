@@ -77,7 +77,7 @@ yarn run dev
 
 ## 🌀 NextJS image optimizations
 
-You must add all domains that you use for in-sourcing images in the `anolilab.config.js` file, for example:
+You must add all domains that you use for in-sourcing images in the `anolilab.config.cjs` file, for example:
 
 ```javascript
 module.exports = {

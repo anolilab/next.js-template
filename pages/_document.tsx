@@ -1,7 +1,7 @@
 import { h } from "preact";
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
-import nextConfig from "../anolilab.config";
+import nextConfig from "../anolilab.config.cjs";
 
 const generateFontLinks = (fontsFolder: string, fileName: string) => {
     return (

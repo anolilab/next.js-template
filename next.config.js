@@ -9,7 +9,7 @@ const { ProvidePlugin } = require("webpack");
 // const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
 
 const path = require("path");
-const nextConfig = require("./anolilab.config");
+const nextConfig = require("./anolilab.config.cjs");
 const tsconfig = require("./tsconfig.json");
 
 const traverse = (rules) => {
