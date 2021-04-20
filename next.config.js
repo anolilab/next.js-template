@@ -83,11 +83,21 @@ let webpackConfig = {
         optimizeFonts: true,
         optimizeImages: true,
         productionBrowserSourceMaps: true,
+        strictPostcssConfiguration: true
     },
 
     pageExtensions: nextConfig.pageExtensions,
 
     i18n: nextConfig.i18n,
+
+    async headers()  {
+        return [
+            {
+                source: '/(.*)',
+                headers: nextConfig.securityHeaders
+            }
+        ];
+    },
 
     webpack(config, options) {
         const { dev, isServer } = options;
@@ -180,11 +190,11 @@ let webpackConfig = {
     },
 };
 
-if (nextConfig.images) {
+if (nextConfig.images  !== undefined) {
     webpackConfig.images = nextConfig.images;
 }
 
-if (nextConfig.env) {
+if (nextConfig.env !== undefined) {
     webpackConfig.env = nextConfig.env;
 }
 
