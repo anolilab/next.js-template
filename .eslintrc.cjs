@@ -1,6 +1,9 @@
 module.exports = {
     root: true,
     extends: ["@anolilab/eslint-config"],
+    parserOptions: {
+        project: "./tsconfig.eslint.json",
+    },
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -17,5 +20,5 @@ module.exports = {
     },
     rules: {
         // Customize your rules
-    }
+    },
 };
