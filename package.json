@@ -65,7 +65,7 @@
     "rosetta": "^1.1.0",
     "schema-utils": "^3.0.0",
     "swr": "0.5.5",
-    "tailwindcss": "2.1.1",
+    "tailwindcss": "2.1.2",
     "x2js": "^3.4.1",
     "xml-formatter": "^2.4.0"
   },
