@@ -88,7 +88,7 @@
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "browserslist-config-anolilab": "^1.0.2",
+    "browserslist-config-anolilab": "^2.0.0",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "esbuild-loader": "^2.12.0",

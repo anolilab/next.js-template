@@ -3951,10 +3951,10 @@ browserify-zlib@0.2.0, browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist-config-anolilab@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/browserslist-config-anolilab/-/browserslist-config-anolilab-1.0.2.tgz#e618ad20ce4b5f7e7bb530da05d344179890f380"
-  integrity sha512-vNQRUxytehlEDyIZN6K/HZHvnjL6k/h5Iud0Tqhj0pBQRjizS01at/uXaa0qF0yclQomTSYmnRjNzndZgR19Tw==
+browserslist-config-anolilab@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/browserslist-config-anolilab/-/browserslist-config-anolilab-2.0.1.tgz#5b89a21572b5cb4819165ce9f512f090ba2c6a46"
+  integrity sha512-cPOi4AtdaSNyJtwm/eajgZD5obbqMMkYsR0iD2x6DjJ/Ly7IcVxLTOiMVDCgTghkP7cIjQjukZF0KmAS+Y9UwQ==
 
 browserslist@4.16.1, browserslist@^4.14.5, browserslist@^4.16.0:
   version "4.16.1"
