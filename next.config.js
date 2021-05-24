@@ -4,7 +4,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 const withWorkbox = require("next-with-workbox");
 const withSitemap = require("next-with-sitemap");
-const { ESBuildMinifyPlugin } = require("esbuild-loader");
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require("esbuild-loader");
 const { ProvidePlugin } = require("webpack");
 // const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
 
@@ -60,13 +60,14 @@ function useEsbuildMinify(config, options) {
     const terserIndex = config.optimization.minimizer.findIndex(
         (minimizer) => minimizer.constructor.name === "TerserPlugin",
     );
+
     if (terserIndex > -1) {
         config.optimization.minimizer.splice(terserIndex, 1, new ESBuildMinifyPlugin(options));
     }
 }
 
 function useEsbuildLoader(config, options) {
-    const jsLoader = config.module.rules.find((rule) => rule.test && rule.test.test(".js"));
+    const jsLoader = config.module.rules.find((rule) => rule.test && rule.test.test(".tsx"));
 
     if (jsLoader) {
         jsLoader.use.loader = "esbuild-loader";
@@ -84,6 +85,9 @@ let webpackConfig = {
         optimizeImages: true,
         productionBrowserSourceMaps: true,
         strictPostcssConfiguration: true
+    },
+    future: {
+        webpack5: true,
     },
 
     pageExtensions: nextConfig.pageExtensions,
@@ -174,17 +178,18 @@ let webpackConfig = {
             new ProvidePlugin(nextConfig.provide),
         );
 
-        useEsbuildMinify(config, {
-            target: tsconfig.compilerOptions.target.toLowerCase(),
-            css: true,
-        });
-        useEsbuildLoader(config, {
-            loader: "tsx",
-            target: tsconfig.compilerOptions.target.toLowerCase(),
-            jsxFactory: tsconfig.compilerOptions.jsxFactory,
-            jsxFragment: tsconfig.compilerOptions.jsxFragmentFactory,
-            tsconfigRaw: tsconfig,
-        });
+        // config.plugins.push(new ESBuildPlugin())
+        // useEsbuildMinify(config, {
+        //     target: tsconfig.compilerOptions.target.toLowerCase(),
+        //     css: true,
+        // });
+        // useEsbuildLoader(config, {
+        //     loader: "tsx",
+        //     target: tsconfig.compilerOptions.target.toLowerCase(),
+        //     jsxFactory: tsconfig.compilerOptions.jsxFactory,
+        //     jsxFragment: tsconfig.compilerOptions.jsxFragmentFactory,
+        //     tsconfigRaw: tsconfig,
+        // });
 
         return config;
     },
