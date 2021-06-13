@@ -3465,6 +3465,11 @@ adverb-where@^0.2.2:
   resolved "https://registry.yarnpkg.com/adverb-where/-/adverb-where-0.2.2.tgz#54dadca0652114e339cc12ecfa7b40547cf2fe1b"
   integrity sha512-hZPUFSgljaJnzQQXqc4GCEVSxmyhBkLgf/DyeW7F068PdRE9PervS4LmftJWWSPfTpaEhpJebx3eP7D9slBjSw==
 
+agent-base@5:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-5.1.1.tgz#e8fb3f242959db44d63be665db7a8e739537a32c"
+  integrity sha512-TMeqbNl2fMW0nMjTEPOwe3J/PRFP4vqeoNuQMG0HlMrtm5QxKqdvAkZ1pRBQ/ulIyDD5Yq0nJ7YbdD8ey0TO3g==
+
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-6.0.2.tgz#49fff58577cfee3f37176feab4c22e00f86d7f77"
@@ -7477,6 +7482,14 @@ https-browserify@1.0.0, https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
+https-proxy-agent@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-4.0.0.tgz#702b71fb5520a132a66de1f67541d9e62154d82b"
+  integrity sha512-zoDhWrkR3of1l9QAL8/scJZyLu8j/gBkcwcaQOZh7Gyh/+uJQzGVETdgT30akuwkpL8HTRfssqI3BZuV18teDg==
+  dependencies:
+    agent-base "5"
+    debug "4"
+
 https-proxy-agent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
@@ -11197,10 +11210,10 @@ postcss-image-set-function@^3.0.1:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
-postcss-import@14.0.1:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-14.0.1.tgz#6a3f8f2ce74a95fc7c72ecfe3eddfa0e9124e677"
-  integrity sha512-Xn2+z++vWObbEPhiiKO1a78JiyhqipyrXHBb3AHpv0ks7Cdg+GxQQJ24ODNMTanldf7197gSP3axppO9yaG0lA==
+postcss-import@14.0.2:
+  version "14.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-14.0.2.tgz#60eff77e6be92e7b67fe469ec797d9424cae1aa1"
+  integrity sha512-BJ2pVK4KhUyMcqjuKs9RijV5tatNzNa73e/32aBVE/ejYPe37iH+6vAu9WvqUkB5OAYgLHzbSvzHnorybJCm9g==
   dependencies:
     postcss-value-parser "^4.0.0"
     read-cache "^1.0.0"
@@ -11758,6 +11771,11 @@ property-information@^5.0.0:
   integrity sha512-YUHSPk+A30YPv+0Qf8i9Mbfe/C0hdPXk1s1jPVToV8pk8BQtpw10ct89Eo7OWkutrwqvT0eicAxlOg3dOAu8JA==
   dependencies:
     xtend "^4.0.0"
+
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
 prr@~1.0.1:
   version "1.0.1"
@@ -12690,10 +12708,13 @@ run-parallel@^1.1.9:
   resolved "https://registry.yarnpkg.com/run-parallel/-/run-parallel-1.1.10.tgz#60a51b2ae836636c81377df16cb107351bcd13ef"
   integrity sha512-zb/1OuZ6flOlH6tQyMPUrE3x3Ulxjlo9WIVXR4yVYi4H9UXQaeIsPbLn2R3O3vQCnDKkAl2qHiuocKKX4Tz/Sw==
 
-rustywind@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/rustywind/-/rustywind-0.8.1.tgz#1084f7408c962a44bf90ea6dca897e10ccbd2977"
-  integrity sha512-oauFGMxPO4sxDMdNfXzLTrBEBbd74PHoIy5T92VWZwFaSCHw4GAunxAy2XzPUOmHTomuEdvXdHaU7dZhYXCvaQ==
+rustywind@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/rustywind/-/rustywind-0.12.0.tgz#f64c9b54d2d53d30adfd602f3df5e900cbe49a0a"
+  integrity sha512-rYEkoCYSylgdHXgEPsiFh85Wr9zG7ylCUbrZPr9J1K6wvSbx5T5jucrTRgh+HukDKtOmoGCDOZebaloxBqzQ8Q==
+  dependencies:
+    https-proxy-agent "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 rxjs@^6.6.7:
   version "6.6.7"
