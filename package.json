@@ -74,7 +74,7 @@
     "@anolilab/stylelint-config": "^2.1.0",
     "@anolilab/textlint-config": "^2.0.4",
     "@axe-core/react": "^4.2.1",
-    "@next/bundle-analyzer": "^10.2.3",
+    "@next/bundle-analyzer": "^11.0.0",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/preact": "^2.0.1",
     "@testing-library/preact-hooks": "^1.1.0",
