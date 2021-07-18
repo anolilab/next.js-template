@@ -1,4 +1,4 @@
-import { FunctionComponent, h } from "preact";
+import React, { FunctionComponent } from "react";
 import NextHead from "next/head";
 import { useI18n } from "@provider/i18n";
 import { Locale } from "@locales/index";

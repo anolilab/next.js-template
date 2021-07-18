@@ -1,4 +1,3 @@
-import { h } from "preact";
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
 import nextConfig from "../anolilab.config.cjs";
@@ -6,11 +5,12 @@ import nextConfig from "../anolilab.config.cjs";
 const generateFontLinks = (fontsFolder: string, fileName: string) => {
     return (
         <>
-            <link rel="preload" href={`/fonts/${fontsFolder}/${fileName}.eot`} as="font" crossOrigin="true" />
-            <link rel="preload" href={`/fonts/${fontsFolder}/${fileName}.woff2`} as="font" crossOrigin="true" />
-            <link rel="preload" href={`/fonts/${fontsFolder}/${fileName}.woff`} as="font" crossOrigin="true" />
-            <link rel="preload" href={`/fonts/${fontsFolder}/${fileName}.ttf`} as="font" crossOrigin="true" />
+            <link key="font_load_eot" rel="preload" href={`/fonts/${fontsFolder}/${fileName}.eot`} as="font" crossOrigin="true" />
+            <link key="font_load_woff2" rel="preload" href={`/fonts/${fontsFolder}/${fileName}.woff2`} as="font" crossOrigin="true" />
+            <link key="font_load_woff" rel="preload" href={`/fonts/${fontsFolder}/${fileName}.woff`} as="font" crossOrigin="true" />
+            <link key="font_load_ttf" rel="preload" href={`/fonts/${fontsFolder}/${fileName}.ttf`} as="font" crossOrigin="true" />
             <link
+                key="font_load_svg"
                 rel="preload"
                 href={`/fonts/${fontsFolder}/${fileName}.svg#Montserrat`}
                 as="font"
@@ -30,7 +30,7 @@ class MyDocument extends Document<{ lang: string }> {
     public render() {
         return (
             <Html lang={this.props.lang}>
-                <Head>
+                <Head key="_document_head" title={nextConfig.title}>
                     <meta charSet="utf-8" />
 
                     <meta name="mobile-web-app-capable" content="yes" />
@@ -65,10 +65,8 @@ class MyDocument extends Document<{ lang: string }> {
                         <meta property="article:author" content={nextConfig.openGraph.author} />
                     )}
 
-                    <link rel="manifest" href="static/manifest.json" />
-
                     {(nextConfig.i18n || {})?.domains?.map((domain) => (
-                        <link rel="alternate" hrefLang={domain.defaultLocale} href={domain.domain} />
+                        <link key={"default_local"} rel="alternate" hrefLang={domain.defaultLocale} href={domain.domain} />
                     ))}
 
                     {/* @todo add favicons from https://github.com/anolilab/next-favicons */}

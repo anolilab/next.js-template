@@ -1,4 +1,4 @@
-import { Fragment, h } from "preact";
+import React, { Fragment } from "react";
 import { LayoutType } from "@components/layout/index";
 
 const Default: LayoutType = ({ route: string, children }) => {

@@ -132,9 +132,6 @@ module.exports = {
     // @see https://webpack.js.org/plugins/provide-plugin
     provide: {
         React: "react",
-        h: ["preact", "h"],
-        Fragment: ["preact", "Fragment"],
-        "{h, Fragment}": "preact",
     },
     securityHeaders: [
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP

@@ -1,5 +1,4 @@
-import { FunctionalComponent, h } from "preact";
-import { useEffect } from "preact/hooks";
+import React, { FunctionComponent, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { DefaultSeo } from "next-seo";
 import App, { AppProps, AppContext } from "next/app";
@@ -17,7 +16,7 @@ import { ErrorFallbackProps } from "../@types/core";
 import "@assets/index.css";
 import nextConfig from "../anolilab.config.cjs";
 
-const MyApp: FunctionalComponent<
+const MyApp: FunctionComponent<
     { Component: AppProps["Component"] & { Layout?: LayoutType } } & AppProps &
         I18nProps<{
             /* types */
@@ -31,7 +30,7 @@ const MyApp: FunctionalComponent<
         if (process.env.NODE_ENV !== "production") {
             const axe = require("@axe-core/react");
 
-            axe(h, ReactDOM, 1000, { runOnly: false });
+            axe(React, ReactDOM, 1000, { runOnly: false });
         }
 
         if (!("serviceWorker" in navigator) || process.env.NODE_ENV !== "production") {
@@ -52,7 +51,7 @@ const MyApp: FunctionalComponent<
                 defaultLocale={defaultLocale as string}
             >
                 <ThemeProvider>
-                    <Head>
+                    <Head key="_app_head">
                         <title>{nextConfig.title}</title>
                         <meta name="viewport" content="width=device-width,initial-scale=1" />
                     </Head>

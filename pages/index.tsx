@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { GetStaticProps } from "next";
 import { I18nProps } from "@provider/i18n";
 

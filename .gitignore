@@ -18,6 +18,7 @@ node_modules
 # testing
 /coverage
 
+# worker
 public/sw.js
 public/sw.js.map
 public/worker-*.js
@@ -25,3 +26,12 @@ public/worker-*.js.map
 
 robots.txt
 sitemap.xml
+
+# Yarn v2
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

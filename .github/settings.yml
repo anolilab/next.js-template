@@ -114,7 +114,7 @@ repository:
     archived: false
     default_branch: "main"
     delete_branch_on_merge: true
-    description: "Provides a GitHub repository template for Next.js, using Preact, tailwindcss, i18n and seo."
+    description: "Provides a GitHub repository template for Next.js, using i18n and seo."
     has_downloads: true
     has_issues: true
     has_pages: false
@@ -125,4 +125,4 @@ repository:
 
     # https://developer.github.com/v3/repos/branches/#remove-branch-protection
 
-    topics: "node, template, anolilab, typescript, nextjs, tailwindcss, i18n, preact, seo, zeit, jest, skeleton, starter-kit, boilerplate, ssr"
+    topics: "node, template, anolilab, typescript, nextjs, i18n, react, seo, zeit, jest, skeleton, starter-kit, boilerplate, ssr, vercel"

@@ -5,6 +5,9 @@ const Lang: Locale = {
         "/": {
             title: "hallo",
         },
+        "/_error": {
+            title: "hallo",
+        }
     },
 };
 

@@ -1,16 +1,16 @@
-const withPreact = require("next-plugin-preact");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
     enabled: process.env.ANALYZE === "true",
 });
 const withWorkbox = require("next-with-workbox");
 const withSitemap = require("next-with-sitemap");
-const { ESBuildMinifyPlugin } = require("esbuild-loader");
 const { ProvidePlugin } = require("webpack");
 // const FaviconsManifestWebpackPlugin = require("@anolilab/favicons-manifest-webpack-plugin")
 
 const path = require("path");
 const nextConfig = require("./anolilab.config.cjs");
-const tsconfig = require("./tsconfig.json");
+const packageJson = require('./package.json');
+
+const dependencies = Object.keys({...packageJson.dependencies, ...packageJson.devDependencies });
 
 const traverse = (rules) => {
     for (let rule of rules) {
@@ -19,8 +19,10 @@ const traverse = (rules) => {
                 let nextGetLocalIdent = rule.options.modules.getLocalIdent;
 
                 rule.options.modules.getLocalIdent = (context, _, exportName, options) => {
-                    if (context.resourcePath.includes(nextConfig.linaria.extension)) {
-                        return exportName;
+                    if (dependencies.includes('@linaria/webpack-loader')) {
+                        if (context.resourcePath.includes(nextConfig.linaria.extension)) {
+                            return exportName;
+                        }
                     }
 
                     return nextGetLocalIdent(context, _, exportName, options);
@@ -55,24 +57,6 @@ const isCssRules = (rule) => {
 
     return nextConfig.css.extensions.includes(rule.test);
 };
-
-function useEsbuildMinify(config, options) {
-    const terserIndex = config.optimization.minimizer.findIndex(
-        (minimizer) => minimizer.constructor.name === "TerserPlugin",
-    );
-    if (terserIndex > -1) {
-        config.optimization.minimizer.splice(terserIndex, 1, new ESBuildMinifyPlugin(options));
-    }
-}
-
-function useEsbuildLoader(config, options) {
-    const jsLoader = config.module.rules.find((rule) => rule.test && rule.test.test(".js"));
-
-    if (jsLoader) {
-        jsLoader.use.loader = "esbuild-loader";
-        jsLoader.use.options = options;
-    }
-}
 
 let webpackConfig = {
     poweredByHeader: false,
@@ -138,19 +122,21 @@ let webpackConfig = {
 
         traverse(config.module.rules);
 
-        config.module.rules.push({
-            test: /\.(tsx|ts|js|mjs|jsx)$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                    loader: require.resolve("@linaria/webpack-loader"),
-                    options: {
-                        sourceMap: process.env.NODE_ENV !== "production",
-                        ...nextConfig.linaria,
+        if (dependencies.includes('@linaria/webpack-loader')) {
+            config.module.rules.push({
+                test: /\.(tsx|ts|js|mjs|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: require.resolve("@linaria/webpack-loader"),
+                        options: {
+                            sourceMap: process.env.NODE_ENV !== "production",
+                            ...nextConfig.linaria,
+                        },
                     },
-                },
-            ],
-        });
+                ],
+            });
+        }
 
         if (process.env.ANALYZE_BUILD) {
             const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -174,18 +160,6 @@ let webpackConfig = {
             new ProvidePlugin(nextConfig.provide),
         );
 
-        useEsbuildMinify(config, {
-            target: tsconfig.compilerOptions.target.toLowerCase(),
-            css: true,
-        });
-        useEsbuildLoader(config, {
-            loader: "tsx",
-            target: tsconfig.compilerOptions.target.toLowerCase(),
-            jsxFactory: tsconfig.compilerOptions.jsxFactory,
-            jsxFragment: tsconfig.compilerOptions.jsxFragmentFactory,
-            tsconfigRaw: tsconfig,
-        });
-
         return config;
     },
 };
@@ -198,7 +172,6 @@ if (nextConfig.env !== undefined) {
     webpackConfig.env = nextConfig.env;
 }
 
-webpackConfig = withPreact(webpackConfig);
 webpackConfig = withBundleAnalyzer(webpackConfig);
 webpackConfig = withWorkbox({ workbox: {}, ...webpackConfig });
 

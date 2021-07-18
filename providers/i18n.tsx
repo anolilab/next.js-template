@@ -1,6 +1,5 @@
-import { createContext, h } from "preact";
+import React, { createContext, useEffect, useState, useContext } from "react";
 import rosetta, { Rosetta as RosettaBase } from "rosetta";
-import { useEffect, useState, useContext } from "preact/hooks";
 
 /**
  * @see https://github.com/microsoft/TypeScript/pull/40336

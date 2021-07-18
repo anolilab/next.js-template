@@ -1,15 +1,24 @@
 <h1 align="center">Template for the Next.js project</h1>
 
+---
+
+<div align="center">
+    <p>
+        <sup>
+            Daniel Bannert's open source work is supported by the community on <a href="https://github.com/sponsors/prisis">GitHub Sponsors</a>
+        </sup>
+    </p>
+</div>
+
+---
+
 <p align="center">
   <a href="https://nextjs.org/" title="Next.js">Next.js</a><br/>
-  <a href="https://preactjs.com/" title="Preact">Preact</a><br/>
   <a href="https://www.typescriptlang.org/" title="TypeScript">TypeScript</a><br/>
   SEO<br/>
   RSS generation<br/>
   <a href="https://github.com/lukeed/rosetta" title="rosetta i18n">Rosetta I18n</a><br/>
-  <a href="https://github.com/callstack/linaria" title="linaria">linaria - Zero-runtime CSS in JS library</a><br/>
   <a href="https://github.com/anolilab/favicons-manifest" title="PWA assets generator">PWA assets generator</a> (soon)<br/>
-  <a href="https://github.com/evanw/esbuild" title="An extremely fast JavaScript bundler and minifier">An extremely fast JavaScript bundler and minifier</a>
 </p>
 
 ## 🏁 Getting Started
@@ -37,7 +46,13 @@ yarn
 yarn run dev
 ```
 
-## ✨ Features
+## Features
+
+This template is prepared to add <a href="https://github.com/callstack/linaria" title="linaria">linaria</a><br/>
+```bash
+yarn add @linaria/core @linaria/react @linaria/babel-preset @linaria/shaker
+```
+everything else is preconfigured for you.
 
 <details>
 <summary>Images with Next/Images 🚀</summary>
@@ -75,7 +90,7 @@ yarn run dev
 </ul>
 </details>
 
-## 🌀 NextJS image optimizations
+## NextJS image optimizations
 
 You must add all domains that you use for in-sourcing images in the `anolilab.config.cjs` file, for example:
 
@@ -100,9 +115,7 @@ Note that image optimization does not work with Netlify. Therefore, image optimi
 -   `yarn run lint`: Pass TypeScript files using eslint
 -   `yarn run lint:css`: Pass TypeScript files using eslint
 -   `yarn run lint`: Pass TypeScript files using eslint
--   `yarn run test`: Run Jest and Enzyme with
-    [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
-    your tests
+-   `yarn run test`: Run Jest and Enzyme
 
 ## Learn More
 
@@ -113,7 +126,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## 🧐 Disclaimer
+## Disclaimer
 
 This project is not affiliated with [NextJS](https://nextjs.org/).
 
