@@ -12876,7 +12876,7 @@ __metadata:
     rosetta: ^1.1.0
     schema-utils: ^3.1.0
     stylelint: ^13.13.1
-    swr: 0.5.6
+    swr: 1.0.0
     ts-jest: ^27.0.3
     ts-loader: 9.2.3
     typescript: ^4.3.5
@@ -17150,14 +17150,14 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"swr@npm:0.5.6":
-  version: 0.5.6
-  resolution: "swr@npm:0.5.6"
+"swr@npm:1.0.0":
+  version: 1.0.0
+  resolution: "swr@npm:1.0.0"
   dependencies:
     dequal: 2.0.2
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
-  checksum: 3522cc3de9200d4209b97ac333181d7b3c040fba770b03ff41b226a2839551141c7e71080aa700b442ff8a6537d11abdf4182a4272b8e5fe57df6a1e9c2fb7fa
+  checksum: 0a0503b903d4d4decb7523d4e93bfc17eb234ab6378811dbe38055a96077cda3b839244284febe1afcaa7c1fd3175f3a4e55a92c67ffe52ea9e9db230fb7a2e8
   languageName: node
   linkType: hard
 
