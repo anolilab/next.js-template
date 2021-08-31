@@ -37,7 +37,7 @@
     "@babel/plugin-transform-react-jsx": "7.14.9",
     "@vercel/fetch": "^6.1.1",
     "classnames": "^2.3.1",
-    "next": "11.0.1",
+    "next": "11.1.2",
     "next-seo": "4.26.0",
     "next-themes": "0.0.15",
     "next-with-sitemap": "^2.5.2",
@@ -49,7 +49,7 @@
     "resolve-url-loader": "^4.0.0",
     "rosetta": "^1.1.0",
     "schema-utils": "^3.1.0",
-    "swr": "0.5.6",
+    "swr": "0.5.7",
     "x2js": "^3.4.1",
     "xml-formatter": "^2.4.0"
   },
