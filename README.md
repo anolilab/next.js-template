@@ -1,4 +1,6 @@
-<h1 align="center">Template for the Next.js project</h1>
+<h1 align="center">Template for your Next.js project</h1>
+
+Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged.
 
 ---
 
@@ -12,18 +14,31 @@
 
 ---
 
-<p align="center">
-  <a href="https://nextjs.org/" title="Next.js">Next.js</a><br/>
-  <a href="https://www.typescriptlang.org/" title="TypeScript">TypeScript</a><br/>
-  SEO<br/>
-  RSS generation<br/>
-  <a href="https://github.com/lukeed/rosetta" title="rosetta i18n">Rosetta I18n</a><br/>
-  <a href="https://github.com/anolilab/favicons-manifest" title="PWA assets generator">PWA assets generator</a> (soon)<br/>
-</p>
+Developer experience first:
+
+- 🔥 [Next.js](https://nextjs.org) for Static Site Generator
+- 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
+- ✅ Strict Mode for TypeScript and React 17
+- ✏️ Linter with [ESLint](https://eslint.org) (default [Anolilab configuration](https://github.com/anolilab/javascript-style-guide))
+- 🛠 Code Formatter with [Prettier](https://prettier.io) (default [Anolilab configuration](https://github.com/anolilab/javascript-style-guide))
+- 🦊 Husky for Git Hooks
+- 🚫 Lint-staged for running linters on Git staged files
+- 🤖 SEO metadata, JSON-LD and Open Graph tags with Next SEO
+- ⚙️ [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+- 🖱️ One click deployment with Vercel or Netlify (or manual deployment to any hosting services)
+- 🌈 Include a FREE minimalist theme
+- 💯 Maximize lighthouse score
+- [Rosetta I18n](https://github.com/lukeed/rosetta)
+
+Built-in feature from Next.js:
+
+- ☕ Minify HTML & CSS
+- 💨 Live reload
+- ✅ Cache busting
 
 ## 🏁 Getting Started
 
-To get started, simply use this repository as github template, click the `Use this template` button or clone the repository and run `yarn`
+To get started, simply use this repository as GitHub template, click the `Use this template` button or clone the repository and run `yarn`
 
 #### Do this only if you clone this repository
 
