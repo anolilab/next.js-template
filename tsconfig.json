@@ -1,52 +1,83 @@
 {
-    "compilerOptions": {
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "target": "ES2018",
-        "module": "ESNext",
-        "allowJs": true,
-        "checkJs": true,
-        "strict": true,
-        "alwaysStrict": true,
-        "resolveJsonModule": true,
-        "moduleResolution": "node",
-        "removeComments": true,
-        "preserveConstEnums": true,
-
-        "baseUrl": "./",
-
-        "paths": {
-            "@lib/*": ["lib/*"],
-            "@assets/*": ["assets/*"],
-            "@components/*": ["components/*"],
-            "@packages/*": ["packages/*"],
-            "@utils/*": ["utils/*"],
-            "@config/*": ["config/*"],
-            "@hooks/*": ["hooks/*"],
-            "@provider/*": ["providers/*"],
-            "@locales/*": ["locales/*"]
-        },
-        "typeRoots": ["./node_modules/@types", "./@types"],
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-
-        "declaration": true,
-        "sourceMap": true,
-
-        "noImplicitAny": false,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "allowUnreachableCode": false,
-        "noFallthroughCasesInSwitch": true,
-        "strictNullChecks": true,
-        "noUncheckedIndexedAccess": true,
-
-        "jsx": "preserve",
-        "noEmit": true,
-        "isolatedModules": true
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "target": "ES2018",
+    "module": "ESNext",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "baseUrl": "./",
+    "paths": {
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@packages/*": [
+        "packages/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@provider/*": [
+        "providers/*"
+      ],
+      "@locales/*": [
+        "locales/*"
+      ]
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
-    "exclude": ["node_modules", "types", ".next", "out"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "isolatedModules": true,
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "types",
+    ".next",
+    "out"
+  ]
 }
