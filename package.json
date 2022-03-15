@@ -33,11 +33,11 @@
     "build/*"
   ],
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "7.16.5",
+    "@babel/plugin-transform-react-jsx": "7.17.3",
     "@vercel/fetch": "^6.1.1",
-    "next": "12.0.7",
-    "next-seo": "4.28.1",
-    "next-themes": "0.0.15",
+    "next": "12.1.0",
+    "next-seo": "4.29.0",
+    "next-themes": "0.1.1",
     "next-with-sitemap": "^2.5.2",
     "next-with-workbox": "^2.0.1",
     "react": "^17.0.2",
@@ -47,7 +47,7 @@
     "resolve-url-loader": "^4.0.0",
     "rosetta": "^1.1.0",
     "schema-utils": "^4.0.0",
-    "swr": "1.1.1",
+    "swr": "1.2.2",
     "x2js": "^3.4.2",
     "xml-formatter": "^2.5.1"
   },
