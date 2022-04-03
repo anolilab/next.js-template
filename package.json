@@ -44,7 +44,7 @@
     "react-dom": "^17.0.2",
     "react-error-boundary": "^3.1.4",
     "react-ssr-prepass": "^1.4.0",
-    "resolve-url-loader": "^4.0.0",
+    "resolve-url-loader": "^5.0.0",
     "rosetta": "^1.1.0",
     "schema-utils": "^4.0.0",
     "swr": "1.2.2",
