@@ -11101,14 +11101,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-seo@npm:4.29.0":
-  version: 4.29.0
-  resolution: "next-seo@npm:4.29.0"
+"next-seo@npm:5.4.0":
+  version: 5.4.0
+  resolution: "next-seo@npm:5.4.0"
   peerDependencies:
     next: ^8.1.1-canary.54 || >=9.0.0
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: c725138f2b0a17a4b09afddeeb6d4e1b291220bbd083e8855f7c7646dfb14a742c8dd5a9fd8d5abea4e5a7b978675746b9ce54b119b7d6ceb060a880aace5db8
+  checksum: fe19b4f7237111d6e8c2f3e9128946480f1b6e2d7ffab5902e8a4a1114721142daa187175334fa7d6da25605658e63cd8c6e3a68a9d9678fd7fbd4fb4b061391
   languageName: node
   linkType: hard
 
@@ -11187,7 +11187,7 @@ __metadata:
     lint-staged: ^12.1.3
     lodash.map: ^4.6.0
     next: 12.1.4
-    next-seo: 4.29.0
+    next-seo: 5.4.0
     next-themes: 0.1.1
     next-with-sitemap: ^2.5.2
     next-with-workbox: ^2.0.1
