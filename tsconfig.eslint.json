@@ -1,5 +1,16 @@
-// see https://github.com/typescript-eslint/typescript-eslint/issues/890
 {
-    "extends": "./tsconfig.json",
-    "include": ["next-env.d.ts", "components/**/*", "hooks/**/*", "locales/**/*", "pages/**/*", "providers/**/*"]
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "React + Node 16",
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "preserve"
+    },
+    "include": [
+        "__docs__/**/*",
+        "__tests/**/*",
+        "src/**/*",
+        "*.d.ts",
+        "next-env.d.ts"
+    ]
 }
