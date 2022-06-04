@@ -52,9 +52,9 @@
     "xml-formatter": "^2.5.1"
   },
   "devDependencies": {
-    "@anolilab/eslint-config": "^2.2.0",
+    "@anolilab/eslint-config": "^4.0.0",
     "@anolilab/stylelint-config": "^2.2.1",
-    "@anolilab/textlint-config": "^3.0.0",
+    "@anolilab/textlint-config": "^4.0.0",
     "@axe-core/react": "^4.3.2",
     "@next/bundle-analyzer": "^12.0.7",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
