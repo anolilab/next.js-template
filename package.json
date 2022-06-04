@@ -60,7 +60,7 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.0.0",
     "@types/enzyme": "^3.10.10",
     "@types/jest": "^27.0.3",
     "@types/react-dom": "^17.0.11",
