@@ -52,8 +52,8 @@
     "xml-formatter": "^2.5.1"
   },
   "devDependencies": {
-    "@anolilab/eslint-config": "^2.2.0",
-    "@anolilab/stylelint-config": "^2.2.1",
+    "@anolilab/eslint-config": "^3.0.0",
+    "@anolilab/stylelint-config": "^3.0.0",
     "@anolilab/textlint-config": "^3.0.0",
     "@axe-core/react": "^4.3.2",
     "@next/bundle-analyzer": "^12.0.7",
@@ -70,7 +70,7 @@
     "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
-    "browserslist-config-anolilab": "^2.3.0",
+    "browserslist-config-anolilab": "^3.0.0",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "eslint": "^8.0.0",
