@@ -70,7 +70,7 @@
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "eslint": "^8.17.0",
-    "eslint-plugin-jest": "^26.4.6",
+    "eslint-plugin-jest": "^27.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-typescript": "^0.14.0",
