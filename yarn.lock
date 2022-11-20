@@ -1924,12 +1924,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:^12.1.6":
-  version: 12.1.6
-  resolution: "@next/bundle-analyzer@npm:12.1.6"
+"@next/bundle-analyzer@npm:^13.0.0":
+  version: 13.0.4
+  resolution: "@next/bundle-analyzer@npm:13.0.4"
   dependencies:
-    webpack-bundle-analyzer: 4.3.0
-  checksum: cf37be49d45d706aea95df489656341bec64783e567067d15036b25330d7a69204987b2c402277f201b9bf943de588323b120fd8096bb3d6846a054bbb2cdc7e
+    webpack-bundle-analyzer: 4.7.0
+  checksum: 3c5f0de65d40f5d195f0280d58afec6d41c83923202eb3ef863a29e5c71c4f62b91485139bae3ddb8805a93fc15050bfa7e880062a680da0bf2245fec86ad292
   languageName: node
   linkType: hard
 
@@ -5102,13 +5102,6 @@ __metadata:
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
-  languageName: node
-  linkType: hard
-
-"commander@npm:^6.2.0":
-  version: 6.2.1
-  resolution: "commander@npm:6.2.1"
-  checksum: d7090410c0de6bc5c67d3ca41c41760d6d268f3c799e530aafb73b7437d1826bbf0d2a3edac33f8b57cc9887b4a986dce307fa5557e109be40eadb7c43b21742
   languageName: node
   linkType: hard
 
@@ -10986,7 +10979,7 @@ __metadata:
     "@anolilab/stylelint-config": ^3.0.3
     "@anolilab/textlint-config": ^4.0.4
     "@axe-core/react": 4.4.3
-    "@next/bundle-analyzer": ^12.1.6
+    "@next/bundle-analyzer": ^13.0.0
     "@teamsupercell/typings-for-css-modules-loader": ^2.5.1
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
@@ -16140,14 +16133,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-bundle-analyzer@npm:4.3.0":
-  version: 4.3.0
-  resolution: "webpack-bundle-analyzer@npm:4.3.0"
+"webpack-bundle-analyzer@npm:4.7.0":
+  version: 4.7.0
+  resolution: "webpack-bundle-analyzer@npm:4.7.0"
   dependencies:
     acorn: ^8.0.4
     acorn-walk: ^8.0.0
     chalk: ^4.1.0
-    commander: ^6.2.0
+    commander: ^7.2.0
     gzip-size: ^6.0.0
     lodash: ^4.17.20
     opener: ^1.5.2
@@ -16155,7 +16148,7 @@ __metadata:
     ws: ^7.3.1
   bin:
     webpack-bundle-analyzer: lib/bin/analyzer.js
-  checksum: 00b7bf4ac9fca17062b66b6897145b94e87153d3ec8815f0e0c05a3b8a1ca75320262db01a5fa634f604ee3d41aecde1ee59838d05b6d03cd5be62eb1addbcf8
+  checksum: 4ce3b379c61ce16b2219756843407cc99f2b82cd191f653043f1b705a3e32b3af03834af0dfded98ab852313a892a148bed1a8effaacd6440f028c19f41581f3
   languageName: node
   linkType: hard
 

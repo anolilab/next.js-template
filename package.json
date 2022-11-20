@@ -52,7 +52,7 @@
     "@anolilab/stylelint-config": "^3.0.3",
     "@anolilab/textlint-config": "^4.0.4",
     "@axe-core/react": "4.4.3",
-    "@next/bundle-analyzer": "^12.1.6",
+    "@next/bundle-analyzer": "^13.0.0",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
