@@ -31,9 +31,9 @@
   ],
   "dependencies": {
     "@vercel/fetch": "^6.2.0",
-    "next": "12.2.0",
-    "next-seo": "5.4.0",
-    "next-themes": "0.2.0",
+    "next": "12.3.4",
+    "next-seo": "5.15.0",
+    "next-themes": "0.2.1",
     "next-with-sitemap": "^2.5.2",
     "next-with-workbox": "^3.0.3",
     "react": "^18.1.0",
