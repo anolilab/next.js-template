@@ -55,7 +55,7 @@
     "@next/bundle-analyzer": "^12.1.6",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/enzyme": "^3.10.12",
     "@types/jest": "^28.1.0",
